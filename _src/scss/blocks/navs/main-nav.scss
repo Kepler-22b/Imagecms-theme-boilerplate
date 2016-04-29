@@ -1,0 +1,8 @@
+@import "../../_core/core";
+
+.main-nav{
+  background: yellow;
+  border: 1px solid #000;
+  width: 100px;
+  @include center();
+}

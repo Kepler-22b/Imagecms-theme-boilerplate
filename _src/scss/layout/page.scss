@@ -1,0 +1,10 @@
+@import "../_core/core";
+
+.page{
+  display: block;
+ // color: $test;
+
+  &__title{
+    font-size: 3rem;
+  }
+}

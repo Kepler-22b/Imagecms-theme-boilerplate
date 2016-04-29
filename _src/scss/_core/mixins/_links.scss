@@ -1,0 +1,8 @@
+@mixin link(){
+  text-decoration: underline;
+  color: $test;
+
+  &:hover{
+    color: #000;
+  }
+}
