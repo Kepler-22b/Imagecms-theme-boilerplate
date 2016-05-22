@@ -3,5 +3,6 @@
 
 .message{
   display: inline;
+  float: right;
   @include btn();
 }

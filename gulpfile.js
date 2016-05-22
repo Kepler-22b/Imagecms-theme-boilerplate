@@ -11,18 +11,16 @@ var remember = require('gulp-remember-history');
 var path = require('path');
 var cached = require('gulp-cached');
 
+var settings = {
+    coreMainPath: '_src/scss/core/'
+}
+
 var paths = {
     dist: 'dist',
     cssSrcArray: [
         '_src/scss/core/startup.scss',
         '_src/scss/**/*.scss'
     ],
-    cssWorkWatch: [
-        '_src/scss/blocks/**/*.scss',
-        '_src/scss/globals/**/*.scss',
-        '_src/scss/layout/**/*.scss'
-    ],
-    cssCoreWatch: '_src/scss/core/**/*.scss',
     cssDist: 'dist/css/'
 };
 
@@ -49,11 +47,15 @@ gulp.task('clear', function () {
 
 /* Watchers. Remove from cache deleted files */
 gulp.task('watch', function () {
-    gulp.watch(paths.cssWorkWatch, gulp.series('css')).on('unlink', function (filepath) {
+    gulp.watch(paths.cssSrcArray, gulp.series('css'))
+    .on('unlink', function (filepath) {
         remember.forget('css', path.resolve(filepath));
-    });
-    gulp.watch(paths.cssCoreWatch, gulp.series('css')).on('change', function(){
-        remember.forgetAll('css');
-        delete cached.caches['css'];
+    })
+    .on('change', function(filepath){
+        var unixPath = filepath.split('\\').join('\/');
+        if(unixPath.indexOf(settings.coreMainPath) != -1){
+            remember.forgetAll('css');
+            delete cached.caches['css'];
+        }
     });
 });
