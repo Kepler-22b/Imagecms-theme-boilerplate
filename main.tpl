@@ -8,7 +8,7 @@
       * All changes will be lost when sources are regenerated!
       * Use Sass files _src/scss instead. Read more here http://docs.imagecms.net/rabota-s-shablonom-multishop/rabota-s-css-i-javasctipt-dlia-razrabotchikov
      -->
-    <link rel="stylesheet" media="all" href="dist/css/final.min.css">
+    <link rel="stylesheet" media="all" href="{$THEME}dist/css/final.min.css">
     <!--
       * !WARNING! Do not modify final.min.css file!
       * All changes will be lost when sources are regenerated!
@@ -16,6 +16,6 @@
      -->
 </head>
 <body>
-
+  {tlang('Hello world!')}
 </body>
 </html>

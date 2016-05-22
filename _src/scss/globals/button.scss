@@ -1,0 +1,6 @@
+@import "../core/mixins/forms";
+
+.btn{
+  z-index: 12;
+  @include form-control();
+}

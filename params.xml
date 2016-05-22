@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<template label='Catalog' name='Catalog' type="corporate" version="1.0">
+<template label='Blank' name='Blank' type="corporate" version="1.0">
 
 	<screenshots>
 		<screenshot url="/templates/catalog/screens/main.jpg" main="1" />

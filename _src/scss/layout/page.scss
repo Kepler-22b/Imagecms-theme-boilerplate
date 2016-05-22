@@ -1,10 +1,15 @@
-@import "../_core/core";
+@import "../core/includes";
+@import "../core/mixins/forms";
 
 .page{
-  display: block;
- // color: $test;
+  display: flex;
+  color: $test;
 
   &__title{
-    font-size: 3rem;
+    font-size: 8rem;
+  }
+
+  &__lala{
+  	@include form-control();
   }
 }

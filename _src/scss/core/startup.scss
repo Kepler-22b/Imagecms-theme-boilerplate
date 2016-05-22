@@ -1,0 +1,6 @@
+/* 
+ * Style bootstrap file. This files will load before the rest of styles
+ * !All imporded files must have underscore prefix to prevent duplication while gulp parsing
+ */
+@import "reset";
+@import "base";

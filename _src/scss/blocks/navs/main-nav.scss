@@ -1,8 +1,8 @@
-@import "../../_core/core";
+@import "../../core/includes";
 
 .main-nav{
   background: yellow;
-  border: 1px solid #000;
+  border: 1px dashed #000;
   width: 100px;
   @include center();
 }
