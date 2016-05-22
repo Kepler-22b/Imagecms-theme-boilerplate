@@ -2,6 +2,6 @@
 @import "../core/mixins/buttons";
 
 .message{
-  display: inline-block;
+  display: inline;
   @include btn();
 }

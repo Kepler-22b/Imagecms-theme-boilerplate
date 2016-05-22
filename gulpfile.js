@@ -22,27 +22,13 @@ var paths = {
         '_src/scss/globals/**/*.scss',
         '_src/scss/layout/**/*.scss'
     ],
-    cssCoreWatch: '_src/scss/core/*.scss',
+    cssCoreWatch: '_src/scss/core/**/*.scss',
     cssDist: 'dist/css/'
 };
 
 gulp.task('css', function(){
-    return gulp.src(paths.cssSrcArray, {since: gulp.lastRun('css')})
-        .pipe(debug())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(remember('css'))
-        .pipe(concat('final.min.css'))
-        /*
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie > 9', '> 2%']
-        }))
-        .pipe(cssnano())
-        */
-        .pipe(gulp.dest(paths.cssDist));
-});
-
-gulp.task('css:glob', function(){
     return gulp.src(paths.cssSrcArray)
+        .pipe(cached('css'))
         .pipe(debug())
         .pipe(sass().on('error', sass.logError))
         .pipe(remember('css'))
@@ -66,7 +52,8 @@ gulp.task('watch', function () {
     gulp.watch(paths.cssWorkWatch, gulp.series('css')).on('unlink', function (filepath) {
         remember.forget('css', path.resolve(filepath));
     });
-    gulp.watch(paths.cssCoreWatch, gulp.series('css:glob')).on('change', function(){
+    gulp.watch(paths.cssCoreWatch, gulp.series('css')).on('change', function(){
         remember.forgetAll('css');
+        delete cached.caches['css'];
     });
 });
