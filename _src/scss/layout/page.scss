@@ -2,11 +2,11 @@
 @import "../core/mixins/forms";
 
 .page{
-  display: flex;
+  display: inline;
   color: $test;
 
   &__title{
-    font-size: 13rem;
+    font-size: 12rem;
   }
 
   &__lala{
