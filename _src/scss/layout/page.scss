@@ -2,7 +2,8 @@
 @import "../core/mixins/forms";
 
 .page{
-  display: inline;
+  display: flex;
+  transform: translate(20px, 20px);
   color: $test;
 
   &__title{
