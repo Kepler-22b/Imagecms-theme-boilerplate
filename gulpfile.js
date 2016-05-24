@@ -5,7 +5,6 @@ var del = require('del');
 var sass = require('gulp-sass');
 var debug = require('gulp-debug');
 var concat = require('gulp-concat');
-//var cssnano = require('gulp-cssnano');
 var remember = require('gulp-remember-history');
 var path = require('path');
 var cached = require('gulp-cached');
