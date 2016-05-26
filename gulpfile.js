@@ -72,9 +72,9 @@ gulp.task('watch', function () {
 });
 
 /* Watcher with Browser Sync */
-gulp.task('sync', gulp.series('watch'), function () {
+gulp.task('sync', gulp.parallel('watch', function () {
     browserSync.init({
         proxy: 'boilerplate.loc'
     });
-    gulp.watch(paths.dist+'/**/*.*').on('change', browserSync.reload);
-});
+    browserSync.watch(paths.dist+'/**/*.*').on('change', browserSync.reload);
+}));
