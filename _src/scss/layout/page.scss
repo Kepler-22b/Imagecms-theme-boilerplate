@@ -3,10 +3,11 @@
 
 .page{
   display: flex;
+  transform: translate(20px, 20px);
   color: $test;
 
   &__title{
-    font-size: 13rem;
+    font-size: 12rem;
   }
 
   &__lala{

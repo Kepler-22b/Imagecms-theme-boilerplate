@@ -1,7 +1,7 @@
 @import "aligning";
 
 @mixin form-control() {
-  width: 200%;
+  width: 100%;
   border: 1px solid #000;
   padding: 6px;
   @include center();
