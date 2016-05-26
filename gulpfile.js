@@ -62,14 +62,13 @@ gulp.task('watch', function () {
     .on('change', function(filepath){
         var unixPath = filepath.split('\\').join('/');
         var fileNamePosition = unixPath.lastIndexOf('/');
-        var isFirstCharUnderscore = unixPath[fileNamePosition+1] == '_' ? true : false;
         
         /* 
          * Clear history and cache if included file was changed
          * All Sass files starting with "_" included to other files
          * And we should rebuild styles to apply changes
          */
-        if(isFirstCharUnderscore){
+        if(unixPath[fileNamePosition+1] == '_'){
             remember.forgetAll('css');
             delete cached.caches['css'];
         }
