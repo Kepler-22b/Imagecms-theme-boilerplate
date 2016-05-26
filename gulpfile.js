@@ -8,6 +8,7 @@ var concat = require('gulp-concat');
 var remember = require('gulp-remember-history');
 var path = require('path');
 var cached = require('gulp-cached');
+var browserSync = require('browser-sync').create();
 
 /* PostCSS plugins */
 var postcss = require('gulp-postcss');
@@ -22,8 +23,6 @@ var paths = {
     ],
     cssDist: 'dist/css/'
 };
-
-
 
 /* Compile CSS styles using Sass and PostCSS */
 gulp.task('css', function(){
@@ -44,13 +43,10 @@ gulp.task('css', function(){
 });
 
 
-
 /* Deleting destination folder. Use before build task */
 gulp.task('clear', function () {
     return del(paths.dist);
 });
-
-
 
 /* Watcher */
 gulp.task('watch', function () {
@@ -73,4 +69,12 @@ gulp.task('watch', function () {
             delete cached.caches['css'];
         }
     });
+});
+
+/* Watcher with Browser Sync */
+gulp.task('sync', gulp.series('watch'), function () {
+    browserSync.init({
+        proxy: 'boilerplate.loc'
+    });
+    gulp.watch(paths.dist+'/**/*.*').on('change', browserSync.reload);
 });

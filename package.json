@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "autoprefixer": "^6.3.6",
+    "browser-sync": "^2.12.8",
     "cssnano": "^3.6.2",
     "del": "^2.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
