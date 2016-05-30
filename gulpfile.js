@@ -58,7 +58,6 @@ gulp.task('watch', function () {
     .on('change', function(filepath){
         var unixPath = filepath.split('\\').join('/');
         var fileNamePosition = unixPath.lastIndexOf('/');
-        console.log(fileNamePosition);
         
         /* 
          * Clear history and cache if included file was changed
@@ -84,6 +83,6 @@ gulp.task('sync', gulp.parallel('watch', function () {
         proxy: hostName
     });
 
-    browserSync.watch(paths.dist+'/**/*.*').on('change', browserSync.reload);
+    browserSync.watch([paths.dist+'/**/*.*', '**/*.tpl']).on('change', browserSync.reload);
 
 }));
