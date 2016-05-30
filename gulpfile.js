@@ -58,6 +58,7 @@ gulp.task('watch', function () {
     .on('change', function(filepath){
         var unixPath = filepath.split('\\').join('/');
         var fileNamePosition = unixPath.lastIndexOf('/');
+        console.log(fileNamePosition);
         
         /* 
          * Clear history and cache if included file was changed
@@ -71,10 +72,18 @@ gulp.task('watch', function () {
     });
 });
 
-/* Watcher with Browser Sync */
+/* Browser Sync with Watcher */
 gulp.task('sync', gulp.parallel('watch', function () {
+    
+    /* Finding the name of third parent folder name. It's always project folder */
+    var gulpFolderPath = process.cwd();
+    var gulpFolderPathArr = gulpFolderPath.split(path.sep).reverse();
+    var hostName = gulpFolderPathArr[2];
+
     browserSync.init({
-        proxy: 'boilerplate.loc'
+        proxy: hostName
     });
+
     browserSync.watch(paths.dist+'/**/*.*').on('change', browserSync.reload);
+
 }));
