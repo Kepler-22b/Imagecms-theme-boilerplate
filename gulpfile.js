@@ -8,7 +8,7 @@ var concat = require('gulp-concat');
 var remember = require('gulp-remember-history');
 var path = require('path');
 var cached = require('gulp-cached');
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync');
 
 /* PostCSS plugins */
 var postcss = require('gulp-postcss');
@@ -86,6 +86,6 @@ gulp.task('sync', gulp.parallel('watch', function () {
         proxy: hostName
     });
     
-    browserSync.watch([paths.dist+'/**/*.*', '**/*.tpl']).on('change', browserSync.reload);
+    gulp.watch([paths.dist+'/**/*.*', '**/*.tpl']).on('change', browserSync.reload);
 
 }));
