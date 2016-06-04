@@ -90,3 +90,7 @@ gulp.task('sync', gulp.parallel('watch', function () {
     gulp.watch([paths.dist+'/**/*.*', paths.tpls]).on('change', browserSync.reload);
 
 }));
+
+
+/* Compile all final project files. Should be used before deploy */
+gulp.task('build', gulp.series('clear', 'css'));
