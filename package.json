@@ -10,6 +10,7 @@
     "gulp-debug": "^2.1.2",
     "gulp-postcss": "^6.1.1",
     "gulp-remember-history": "^1.0.0",
-    "gulp-sass": "^2.2.0"
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
   }
 }

@@ -9,6 +9,7 @@ var remember = require('gulp-remember-history');
 var path = require('path');
 var cached = require('gulp-cached');
 var browserSync = require('browser-sync');
+var sourcemaps = require('gulp-sourcemaps');
 
 /* PostCSS plugins */
 var postcss = require('gulp-postcss');
@@ -34,12 +35,14 @@ gulp.task('css', function(){
     ]
 
     return gulp.src(paths.cssSrcArray)
+        .pipe(sourcemaps.init())
         .pipe(cached('css'))
         .pipe(debug())
         .pipe(sass().on('error', sass.logError))
         .pipe(remember('css'))
         .pipe(concat('final.min.css'))
         .pipe(postcss(processors))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.cssDist));
 });
 
