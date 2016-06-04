@@ -21,7 +21,8 @@ var paths = {
         '_src/scss/core/startup.scss',
         '_src/scss/**/*.scss'
     ],
-    cssDist: 'dist/css/'
+    cssDist: 'dist/css/',
+    tpls: '**/*.tpl'
 };
 
 /* Compile CSS styles using Sass and PostCSS */
@@ -86,6 +87,6 @@ gulp.task('sync', gulp.parallel('watch', function () {
         proxy: hostName
     });
     
-    gulp.watch([paths.dist+'/**/*.*', '**/*.tpl']).on('change', browserSync.reload);
+    gulp.watch([paths.dist+'/**/*.*', paths.tpls]).on('change', browserSync.reload);
 
 }));
