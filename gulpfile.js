@@ -31,7 +31,7 @@ gulp.task('css', function(){
     
     var processors = [
         autoprefixer({browsers: ['last 2 versions', 'ie > 8', '> 1%']}),
-        //cssnano()
+        cssnano()
     ]
 
     return gulp.src(paths.cssSrcArray)
