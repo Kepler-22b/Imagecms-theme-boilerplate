@@ -37,7 +37,7 @@ gulp.task('css', function(){
             reporter
         ],
         final: [
-            autoprefixer({browsers: ['last 2 versions', 'ie > 8', '> 1%']}),
+            autoprefixer({browsers: ['last 4 versions', 'ie > 8', '> 1%']}),
             cssnano
         ]
     };
