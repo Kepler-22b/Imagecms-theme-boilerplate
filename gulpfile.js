@@ -15,6 +15,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
+var stylelint = require('stylelint');
 
 var paths = {
     dist: 'dist',
@@ -29,19 +30,25 @@ var paths = {
 /* Compile CSS styles using Sass and PostCSS */
 gulp.task('css', function(){
     
-    var processors = [
-        autoprefixer({browsers: ['last 2 versions', 'ie > 8', '> 1%']}),
-        cssnano()
-    ]
+    var processors = {
+        stream: [
+            stylelint()
+        ],
+        final: [
+            autoprefixer({browsers: ['last 2 versions', 'ie > 8', '> 1%']}),
+            cssnano()
+        ]
+    };
 
     return gulp.src(paths.cssSrcArray)
         .pipe(sourcemaps.init())
         .pipe(cached('css'))
         .pipe(debug())
+        .pipe(postcss(processors.stream))
         .pipe(sass().on('error', sass.logError))
         .pipe(remember('css'))
         .pipe(concat('final.min.css'))
-        .pipe(postcss(processors))
+        .pipe(postcss(processors.final))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.cssDist));
 });
