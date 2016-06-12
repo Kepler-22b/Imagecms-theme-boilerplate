@@ -12,6 +12,7 @@
     "gulp-remember-history": "^1.0.0",
     "gulp-sass": "^2.2.0",
     "gulp-sourcemaps": "^1.6.0",
+    "postcss-browser-reporter": "^0.5.0",
     "stylelint": "^6.5.1"
   }
 }

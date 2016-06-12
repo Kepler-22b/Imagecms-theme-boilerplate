@@ -16,6 +16,7 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var stylelint = require('stylelint');
+var reporter = require('postcss-browser-reporter');
 
 var paths = {
     dist: 'dist',
@@ -32,11 +33,12 @@ gulp.task('css', function(){
     
     var processors = {
         stream: [
-            stylelint()
+            stylelint,
+            reporter
         ],
         final: [
             autoprefixer({browsers: ['last 2 versions', 'ie > 8', '> 1%']}),
-            cssnano()
+            cssnano
         ]
     };
 
