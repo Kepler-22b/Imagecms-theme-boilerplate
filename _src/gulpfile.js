@@ -19,13 +19,13 @@ var stylelint = require('stylelint');
 var reporter = require('postcss-browser-reporter');
 
 var paths = {
-    dist: 'dist',
+    dist: '../dist',
     cssSrcArray: [
-        '_src/scss/core/startup.scss',
-        '_src/scss/**/*.scss'
+        'scss/core/startup.scss',
+        'scss/**/*.scss'
     ],
-    cssDist: 'dist/css/',
-    tpls: '**/*.tpl'
+    cssDist: '../dist/css/',
+    tpls: '../**/*.tpl'
 };
 
 /* Compile CSS styles using Sass and PostCSS */
@@ -58,7 +58,7 @@ gulp.task('css', function(){
 
 /* Deleting destination folder. Use before build task */
 gulp.task('clear', function () {
-    return del(paths.dist);
+    return del(paths.dist, {force: true});
 });
 
 
@@ -90,10 +90,10 @@ gulp.task('watch', function () {
 /* Browser Sync with Watcher */
 gulp.task('sync', gulp.parallel('watch', function () {
     
-    /* Finding the name of third parent folder name. It's always project folder */
+    /* Finding the name of fourth parent folder name. It's always project folder */
     var gulpFolderPath = process.cwd();
     var gulpFolderPathArr = gulpFolderPath.split(path.sep).reverse();
-    var hostName = gulpFolderPathArr[2];
+    var hostName = gulpFolderPathArr[3];
     
     browserSync.init({
         proxy: hostName

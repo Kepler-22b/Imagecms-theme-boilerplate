@@ -1,21 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <!--
-      * !WARNING! Do not modify final.min.css file! It has been generated automatically
-      * All changes will be lost when sources are regenerated!
-      * Use Sass files _src/scss instead. Read more here http://docs.imagecms.net/rabota-s-shablonom-multishop/rabota-s-css-i-javasctipt-dlia-razrabotchikov
-     -->
-    <link rel="stylesheet" media="all" href="{$THEME}dist/css/final.min.css">
-    <!--
-      * !WARNING! Do not modify final.min.css file!
-      * All changes will be lost when sources are regenerated!
-      * Use Sass files _src/scss instead. Read more here http://docs.imagecms.net/rabota-s-shablonom-multishop/rabota-s-css-i-javasctipt-dlia-razrabotchikov
-     -->
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!--
+    * !WARNING! Do not modify final.min.css file! It has been generated automatically. All changes might be lost!
+    * If you want to write your own styles, uncomment and use custom.css file instead
+  -->
+  <link rel="stylesheet" media="all" href="{$THEME}dist/css/final.min.css">
+  <!-- <link rel="stylesheet" href="{$THEME}_css/custom.css"> -->
 </head>
 <body>
-  {tlang('Hello world!')}
+  <div class="page">
+    {tlang('Hello world!')}
+  </div>
 </body>
 </html>
