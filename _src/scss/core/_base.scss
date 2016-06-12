@@ -1,14 +1,14 @@
 @import "../core/includes";
 
-.base{
+.base {
   font-size: $base-font;
-  &__title{
-  	font-size: 23px;
-  	width: 20px;
-  	height: 10px;
+  &__title {
+    font-size: 23px;
+    width: 20px;
+    height: 10px;
   }
-  &__button{
-  	width: 20px;
-  	height: 20px;
+  &__button {
+    width: 20px;
+    height: 20px;
   }
 }

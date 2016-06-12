@@ -1,16 +1,16 @@
 @import "../core/includes";
 @import "../core/mixins/forms";
 
-.page{
+.page {
   display: flex;
   transform: translate(20px, 20px);
   color: $test;
 
-  &__title{
+  &__title {
     font-size: 12rem;
   }
 
-  &__lala{
-  	@include form-control();
+  &__lala {
+    @include form-control();
   }
 }
