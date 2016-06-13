@@ -19,12 +19,12 @@ var stylelint = require('stylelint');
 var reporter = require('postcss-browser-reporter');
 
 var paths = {
-    dist: '../dist',
+    dist: '../assets/compiled',
     cssSrcArray: [
         'scss/core/startup.scss',
         'scss/**/*.scss'
     ],
-    cssDist: '../dist/css/',
+    cssDist: '../assets/compiled/css/',
     tpls: '../**/*.tpl'
 };
 

@@ -8,7 +8,7 @@
     * If you want to write your own styles, uncomment and use custom.css file instead
   -->
   <link rel="stylesheet" media="all" href="{$THEME}dist/css/final.min.css">
-  <!-- <link rel="stylesheet" href="{$THEME}_css/custom.css"> -->
+  <!-- <link rel="stylesheet" href="{$THEME}assets/user/user.css"> -->
 </head>
 <body>
   <div class="page">
